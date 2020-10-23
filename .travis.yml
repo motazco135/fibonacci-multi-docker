@@ -1,4 +1,6 @@
-sudo  : true
+language: generic
+
+#sudo  : true
 
 services : 
   - docker
