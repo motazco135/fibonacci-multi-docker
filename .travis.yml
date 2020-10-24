@@ -6,20 +6,20 @@ services :
   - docker
 
 before_install:
-  - docker build -t fib/react-client-docker -f ./client/Dockerfile.dev ./client
+  - docker build -t taz135/react-client-docker -f ./client/Dockerfile.dev ./client
 
 
 after_success:
-  - docker build -t fib/multi-client ./client
-  - docker build -t fib/multi-nginx  ./nginx
-  - docker build -t fib/multi-server ./server
-  - docker build -t fib/multi-worker ./worker
+  - docker build -t taz135/multi-client ./client
+  - docker build -t taz135/multi-nginx  ./nginx
+  - docker build -t taz135/multi-server ./server
+  - docker build -t taz135/multi-worker ./worker
 
   # login to docker CLI
   - echo "$DOCKER_PASS" | docker login -u "$DOCKER_ID" --password-stdin
 
   #take those images and push them to docker hub
-  - docker push fib/multi-client
-  - docker push fib/multi-nginx
-  - docker push fib/multi-server
-  - docker push fib/multi-worker
+  - docker push taz135/multi-client
+  - docker push taz135/multi-nginx
+  - docker push taz135/multi-server
+  - docker push taz135/multi-worker
